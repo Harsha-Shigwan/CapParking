@@ -1,0 +1,219 @@
+<!--<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <title>Parking Manager</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/parking.css">
+        <script src="/js/parking.js"></script>
+    </head>
+    <script>
+            var selectedDateTimeArray = new Array(10).fill(null);
+    </script>
+    <body onload="setupparkingmanager()">
+        <div class="navbar">
+            <div class="brand">PARKING MANAGER</div>
+        </div>
+        <div class="dashboard">
+        <div class="parking-manager">
+            <div class="new-car-btn">Slot Management</div>
+            <div class="new-car-entry">
+                <div onclick="carenter(0)" id="slot1">1</div>
+                <div onclick="carenter(1)" id="slot2">2</div>
+                <div onclick="carenter(2)" id="slot3">3</div>
+                <div onclick="carenter(3)" id="slot4">4</div>
+                <div onclick="carenter(4)" id="slot5">5</div>
+                <div onclick="carenter(5)" id="slot6">6</div>
+                <div onclick="carenter(6)" id="slot7">7</div>
+                <div onclick="carenter(7)" id="slot8">8</div>
+                <div onclick="carenter(8)" id="slot9">9</div>
+                <div onclick="carenter(9)" id="slot10">10</div>
+            </div>
+            
+           <div class="booking-info">
+              <!--<p>Selected Date and Time: <span th:text="${dateTime}"></span></p>-->
+               <!--<div id="block1"><p>Selected Date and Time: <span id="dateTimeSpan1"></span></p></div>
+               <div id="block2"><p>Selected Date and Time: <span id="dateTimeSpan2"></span></p></div>
+               <div id="block3"><p>Selected Date and Time: <span id="dateTimeSpan3"></span></p></div>
+               <div id="block4"><p>Selected Date and Time: <span id="dateTimeSpan4"></span></p></div>
+               <div id="block5"><p>Selected Date and Time: <span id="dateTimeSpan5"></span></p></div>
+               <div id="block6"><p>Selected Date and Time: <span id="dateTimeSpan6"></span></p></div>
+               <div id="block7"><p>Selected Date and Time: <span id="dateTimeSpan7"></span></p></div>
+               <div id="block8"><p>Selected Date and Time: <span id="dateTimeSpan8"></span></p></div>
+               <div id="block9"><p>Selected Date and Time: <span id="dateTimeSpan9"></span></p></div>
+               <div id="block10"><p>Selected Date and Time: <span id="dateTimeSpan10"></span></p></div>
+         </div>
+         
+         <script>
+			window.onbeforeunload = function() {
+    return "Are you sure you want to leave this page?";
+};
+  function handlePayment() {
+    var duration = prompt("Enter the duration in hours, minutes, and seconds (HH:MM:SS):");
+    var timeArray = duration.split(":");
+    var hours = parseInt(timeArray[0]);
+    var minutes = parseInt(timeArray[1]);
+    var seconds = parseInt(timeArray[2]);
+    // Calculate the total duration in seconds
+    var totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    // Calculate the payment amount based on the duration
+    var paymentAmount = calculatePaymentAmount(totalSeconds);
+    // Redirect to the payment page with the calculated payment amount
+    window.location.href = "/user/processPayment?duration=" + duration + "&amount=" + paymentAmount;
+}
+
+function calculatePaymentAmount(totalSeconds) {
+    // Define your payment rate logic here
+    // Example: $1 per minute
+    var ratePerMinute = 1;
+    
+    // Calculate the payment amount based on the total duration
+    var paymentAmount = (totalSeconds / 60) * ratePerMinute;
+    
+    // Return the payment amount
+    return paymentAmount;
+}
+</script>
+
+<div th:if="${reservedSlots}">
+    <h2>Reserved Slots</h2>
+    <ul>
+        <li th:each="slot : ${reservedSlots}" th:text="${'Slot Number: ' + slot.slotNumber}"></li>
+    </ul>
+</div>
+
+<button onclick="handlePayment()">Make Payment</button>
+          </div>
+            <div class="parking-container" id="parkingspace">
+                <div class="parking-slots-holder">
+                    <div class="parking-slot" id="slot-1">1</div>
+                    <div class="parking-slot" id="slot-2">2</div>
+                    <div class="parking-slot" id="slot-3">3</div>
+                    <div class="parking-slot" id="slot-4">4</div>
+                    <div class="parking-slot" id="slot-5">5</div>
+                </div>
+                <div class="parking-way" id="entry-way"></div>
+                <div class="parking-way"></div>
+                <div class="parking-slots-holder">
+                    <div class="parking-slot" id="slot-6">6</div>
+                    <div class="parking-slot" id="slot-7">7</div>
+                    <div class="parking-slot" id="slot-8">8</div>
+                    <div class="parking-slot" id="slot-9">9</div>
+                    <div class="parking-slot" id="slot-10">10</div>
+                </div>
+            </div>
+            <div class="outside">Entry / Exit</div>
+        </div>
+        
+    </body>
+</html>-->
+
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <title>Parking Manager</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/parking.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="/js/parking.js"></script>
+    </head>
+    <script>
+            var selectedDateTimeArray = new Array(10).fill(null);
+    </script>
+    <body onload="setupparkingmanager()">
+        <div class="navbar">
+            <div class="brand">PARKING MANAGER</div>
+        </div>
+        <div class="dashboard">
+        <div class="parking-manager">
+            <div class="new-car-btn">Slot Management</div>
+            <div class="new-car-entry">
+                <div onclick="carenter(0)" id="slot1">1</div>
+                <div onclick="carenter(1)" id="slot2">2</div>
+                <div onclick="carenter(2)" id="slot3">3</div>
+                <div onclick="carenter(3)" id="slot4">4</div>
+                <div onclick="carenter(4)" id="slot5">5</div>
+                <div onclick="carenter(5)" id="slot6">6</div>
+                <div onclick="carenter(6)" id="slot7">7</div>
+                <div onclick="carenter(7)" id="slot8">8</div>
+                <div onclick="carenter(8)" id="slot9">9</div>
+                <div onclick="carenter(9)" id="slot10">10</div>
+            </div>
+            
+           <div class="booking-info">
+              <!--<p>Selected Date and Time: <span th:text="${dateTime}"></span></p>-->
+               <div id="block1"><p>Selected Date and Time: <span id="dateTimeSpan1"></span></p></div>
+               <div id="block2"><p>Selected Date and Time: <span id="dateTimeSpan2"></span></p></div>
+               <div id="block3"><p>Selected Date and Time: <span id="dateTimeSpan3"></span></p></div>
+               <div id="block4"><p>Selected Date and Time: <span id="dateTimeSpan4"></span></p></div>
+               <div id="block5"><p>Selected Date and Time: <span id="dateTimeSpan5"></span></p></div>
+               <div id="block6"><p>Selected Date and Time: <span id="dateTimeSpan6"></span></p></div>
+               <div id="block7"><p>Selected Date and Time: <span id="dateTimeSpan7"></span></p></div>
+               <div id="block8"><p>Selected Date and Time: <span id="dateTimeSpan8"></span></p></div>
+               <div id="block9"><p>Selected Date and Time: <span id="dateTimeSpan9"></span></p></div>
+               <div id="block10"><p>Selected Date and Time: <span id="dateTimeSpan10"></span></p></div>
+         </div>
+         
+         <script>
+			window.onbeforeunload = function() {
+    return "Are you sure you want to leave this page?";
+};
+  function handlePayment() {
+    var duration = prompt("Enter the duration in hours, minutes, and seconds (HH:MM:SS):");
+    var timeArray = duration.split(":");
+    var hours = parseInt(timeArray[0]);
+    var minutes = parseInt(timeArray[1]);
+    var seconds = parseInt(timeArray[2]);
+    // Calculate the total duration in seconds
+    var totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    // Calculate the payment amount based on the duration
+    var paymentAmount = calculatePaymentAmount(totalSeconds);
+    // Redirect to the payment page with the calculated payment amount
+    window.location.href = "/user/processPayment?duration=" + duration + "&amount=" + paymentAmount;
+}
+
+function calculatePaymentAmount(totalSeconds) {
+    // Define your payment rate logic here
+    // Example: $1 per minute
+    var ratePerMinute = 1;
+    
+    // Calculate the payment amount based on the total duration
+    var paymentAmount = (totalSeconds / 60) * ratePerMinute;
+    
+    // Return the payment amount
+    return paymentAmount;
+}
+</script>
+
+<div th:if="${reservedSlots}">
+    <h2>Reserved Slots</h2>
+    <ul>
+        <li th:each="slot : ${reservedSlots}" th:text="${'Slot Number: ' + slot.slotNumber}"></li>
+    </ul>
+</div>
+
+<button onclick="handlePayment()">Make Payment</button>
+          </div>
+            <div class="parking-container" id="parkingspace">
+                <div class="parking-slots-holder">
+                    <div class="parking-slot" id="slot-1">1</div>
+                    <div class="parking-slot" id="slot-2">2</div>
+                    <div class="parking-slot" id="slot-3">3</div>
+                    <div class="parking-slot" id="slot-4">4</div>
+                    <div class="parking-slot" id="slot-5">5</div>
+                </div>
+                <div class="parking-way" id="entry-way"></div>
+                <div class="parking-way"></div>
+                <div class="parking-slots-holder">
+                    <div class="parking-slot" id="slot-6">6</div>
+                    <div class="parking-slot" id="slot-7">7</div>
+                    <div class="parking-slot" id="slot-8">8</div>
+                    <div class="parking-slot" id="slot-9">9</div>
+                    <div class="parking-slot" id="slot-10">10</div>
+                </div>
+            </div>
+            <div class="outside">Entry / Exit</div>
+        </div>
+        
+    </body>
+</html>

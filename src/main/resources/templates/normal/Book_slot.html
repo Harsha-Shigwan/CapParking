@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>This is the home page</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section>
+		<div class="form-dg">
+			<h1>This is the Book slot dashboard</h1>
+        <form th:action="@{/user/carRent}" method="get">
+    <!--<label>Enter Car number</label>
+    <input type="text" name="carNumber">
+    <label>Enter Car model and color</label>
+    <input type="text" name="carModelAndColor">-->
+     <label for="slotName">Slot Name:</label><br>
+    <input type="text" id="slotName" name="slotName" required><br><br>
+        
+        <label for="slotTime">Slot Time:</label><br>
+        <input type="datetime-local" id="slotTime" name="slotTime" required>
+       
+        <label>To</label>
+        <input type="datetime-local" id="slotTime" name="slotTime" required><br><br>
+        <label>CarModel</label>
+        <input type="text" id="carModel" name="carModel">
+    <input type="submit" value="Submit">
+    </form>
+		</div>
+		
+		  <!--<form id="slotForm">
+        <label for="slotName">Slot Name:</label><br>
+        <input type="text" id="slotName" name="slotName" required><br><br>
+        
+        <label for="slotTime">Slot Time:</label><br>
+        <input type="text" id="slotTime" name="slotTime" required><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById('slotForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            // Redirect to the view_slot page
+            window.location.href = "normal/view_slot";
+        });
+    </script>-->
+        
+    </section>
+    <!--<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 d-flex align-items-center">
+      <h1>Car Related info</h1>
+    </div>
+    <div class="col-md-6 offset-md-1">
+      <form th:action="@{/carRent}" method="get" class="mt-4 mt-md-0">
+        <div class="form-group">
+          <label for="name">Enter Car Number</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="surname">Enter car model and colour</label>
+          <input type="text" class="form-control" id="surname">
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>-->
+
+
+        <script>
+      tinymce.init({
+        selector: '#slotName',
+        selector: '#slotTime',
+        selector: '#carModel'
+      });
+    </script>
+        
+</body>
+</html>

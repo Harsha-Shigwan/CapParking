@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="/js/payment.js"></script>
+</head>
+<body>
+	<section>
+    <h1>Payment Page</h1>
+    
+    <p>Duration: <span th:text="${duration}"></span></p>
+    <p>Amount: ₹<span id="payment_field" th:text="${amount}"></span></p>
+    
+    <button onclick="paymentStart()">PAYMENT</button>
+    </section>
+</body>
+</html>
+
+
+

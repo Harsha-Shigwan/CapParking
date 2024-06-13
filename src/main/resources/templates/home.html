@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+	<link rel="stylesheet" href="/css/parking.css">
+	<meta charset="UTF-8" />
+	<title>this is home page</title>
+</head>
+<body>
+	<section class="banner d-flex justify-content-center align-items-center">
+		<div class="text-center">
+			<h1 class="font-weight-bold">Parking Manager</h1>
+			<p>Book parking slot within minute. We provide very efficient and smarter way of handling Parking.</p>
+			<button class="btn btn-primary btn-lg" th:href="@{/signup}">Get Start</button>
+		</div>
+	</section>
+</body>
+</html>

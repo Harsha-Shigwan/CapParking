@@ -1,0 +1,70 @@
+<!-- view_slot.html -->
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>View Slot</title>
+</head>
+<body>
+    <h1>View Slot</h1>
+    <div id="carPosition"></div>
+
+    <script>
+        window.addEventListener('load', function() {
+            var carPosition = localStorage.getItem('carPosition');
+            if (carPosition === 'reserve') {
+                document.getElementById('carPosition').textContent = "Car is reserved";
+            } else {
+                document.getElementById('carPosition').textContent = "Car is parked at slot " + carPosition;
+            }
+        });
+        
+
+function displayReservedSlots() {
+    var parkingData = JSON.parse(localStorage.getItem('parkingData')) || {};
+
+    // Update the UI based on reserved slots
+    for (var slotNumber in parkingData) {
+        if (parkingData[slotNumber].reserved) {
+            // Update the UI to indicate the reserved slot
+            var blockId = 'block' + slotNumber;
+            var spanId = 'dateTimeSpan' + slotNumber;
+            document.getElementById(blockId).style.display = 'block';
+            document.getElementById(spanId).innerText = parkingData[slotNumber].reservationTime;
+        }
+    }
+
+  
+}
+
+    </script>
+</body>
+</html>-->
+<!-- view_slot.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Slot</title>
+</head>
+<body>
+    <h1>View Slot</h1>
+    <div id="carPosition"></div>
+
+    <script>
+        window.addEventListener('load', function() {
+            // Retrieve the parking position from localStorage
+            var carPosition = localStorage.getItem('carPosition');
+
+            if (carPosition !== null) {
+                // Check if the car is reserved or parked
+                if (carPosition === 'reserve') {
+                    document.getElementById('carPosition').textContent = "Car is reserved";
+                } else {
+                    document.getElementById('carPosition').textContent = "Car is parked at slot " + carPosition;
+                }
+            } else {
+                document.getElementById('carPosition').textContent = "No car parked or reserved";
+            }
+        });
+    </script>
+</body>
+</html>
